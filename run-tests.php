@@ -31,6 +31,7 @@
  * not run without it.
  */
 
+
 if (!extension_loaded('pcre')) {
 	echo <<<NO_PCRE_ERROR
 
