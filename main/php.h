@@ -377,11 +377,17 @@ END_EXTERN_C()
 #define PHP_GINIT		ZEND_GINIT
 #define PHP_GSHUTDOWN	ZEND_GSHUTDOWN
 
+//pytonic : module init
 #define PHP_MINIT_FUNCTION		ZEND_MODULE_STARTUP_D
+//pytonic : module shutdown
 #define PHP_MSHUTDOWN_FUNCTION	ZEND_MODULE_SHUTDOWN_D
+//pytonic : request init
 #define PHP_RINIT_FUNCTION		ZEND_MODULE_ACTIVATE_D
+//pytonic : request shutdown
 #define PHP_RSHUTDOWN_FUNCTION	ZEND_MODULE_DEACTIVATE_D
+//pytonic : module info
 #define PHP_MINFO_FUNCTION		ZEND_MODULE_INFO_D
+//pytonic : g info
 #define PHP_GINIT_FUNCTION		ZEND_GINIT_FUNCTION
 #define PHP_GSHUTDOWN_FUNCTION	ZEND_GSHUTDOWN_FUNCTION
  

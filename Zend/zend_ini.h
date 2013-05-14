@@ -164,6 +164,7 @@ END_EXTERN_C()
 #define INI_ORIG_STR(name)	zend_ini_string((name), sizeof(name), 1)
 #define INI_ORIG_BOOL(name) ((zend_bool) INI_ORIG_INT(name))
 
+//pytonic : 
 #define REGISTER_INI_ENTRIES() zend_register_ini_entries(ini_entries, module_number TSRMLS_CC)
 #define UNREGISTER_INI_ENTRIES() zend_unregister_ini_entries(module_number TSRMLS_CC)
 #define DISPLAY_INI_ENTRIES() display_ini_entries(zend_module)

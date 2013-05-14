@@ -118,6 +118,7 @@ typedef struct _zend_fcall_info_cache {
 #define ZEND_MODULE_DEACTIVATE_N(module)	zm_deactivate_##module
 #define ZEND_MODULE_POST_ZEND_DEACTIVATE_N(module)	zm_post_zend_deactivate_##module
 #define ZEND_MODULE_INFO_N(module)			zm_info_##module
+//pytonic
 #define ZEND_MODULE_GLOBALS_CTOR_N(module)  zm_globals_ctor_##module
 #define ZEND_MODULE_GLOBALS_DTOR_N(module)  zm_globals_dtor_##module
 
@@ -131,6 +132,7 @@ typedef struct _zend_fcall_info_cache {
 #define ZEND_MODULE_GLOBALS_CTOR_D(module)  void ZEND_MODULE_GLOBALS_CTOR_N(module)(zend_##module##_globals *module##_globals TSRMLS_DC)
 #define ZEND_MODULE_GLOBALS_DTOR_D(module)  void ZEND_MODULE_GLOBALS_DTOR_N(module)(zend_##module##_globals *module##_globals TSRMLS_DC)
 
+//pytonic
 #define ZEND_GET_MODULE(name) \
     BEGIN_EXTERN_C()\
 	ZEND_DLEXPORT zend_module_entry *get_module(void) { return &name##_module_entry; }\
@@ -733,11 +735,13 @@ END_EXTERN_C()
 #define ZEND_GINIT(module)		((void (*)(void* TSRMLS_DC))(ZEND_MODULE_GLOBALS_CTOR_N(module)))
 #define ZEND_GSHUTDOWN(module)	((void (*)(void* TSRMLS_DC))(ZEND_MODULE_GLOBALS_DTOR_N(module)))
 
+// pytonic : 
 #define ZEND_MINIT_FUNCTION			ZEND_MODULE_STARTUP_D
 #define ZEND_MSHUTDOWN_FUNCTION		ZEND_MODULE_SHUTDOWN_D
 #define ZEND_RINIT_FUNCTION			ZEND_MODULE_ACTIVATE_D
 #define ZEND_RSHUTDOWN_FUNCTION		ZEND_MODULE_DEACTIVATE_D
 #define ZEND_MINFO_FUNCTION			ZEND_MODULE_INFO_D
+// pytonic : 
 #define ZEND_GINIT_FUNCTION			ZEND_MODULE_GLOBALS_CTOR_D
 #define ZEND_GSHUTDOWN_FUNCTION		ZEND_MODULE_GLOBALS_DTOR_D
 

@@ -242,6 +242,8 @@ typedef struct _zend_arg_info {
  * but its fields have different meaning. It's used as the first element of 
  * arg_info array to define properties of internal functions.
  */
+
+//pytonic : 内部函数的结构体 
 typedef struct _zend_internal_function_info {
 	const char *_name;
 	zend_uint _name_len;
@@ -252,12 +254,14 @@ typedef struct _zend_internal_function_info {
 	zend_bool pass_rest_by_reference;
 } zend_internal_function_info;
 
+//pytonic 
 typedef struct _zend_compiled_variable {
 	const char *name;
 	int name_len;
 	ulong hash_value;
 } zend_compiled_variable;
 
+//pytonic 
 struct _zend_op_array {
 	/* Common elements */
 	zend_uchar type;
@@ -315,6 +319,7 @@ struct _zend_op_array {
 #define ZEND_RETURN_VALUE				0
 #define ZEND_RETURN_REFERENCE			1
 
+//pytonic
 typedef struct _zend_internal_function {
 	/* Common elements */
 	zend_uchar type;
@@ -333,6 +338,7 @@ typedef struct _zend_internal_function {
 
 #define ZEND_FN_SCOPE_NAME(function)  ((function) && (function)->common.scope ? (function)->common.scope->name : "")
 
+//pytonic :
 typedef union _zend_function {
 	zend_uchar type;	/* MUST be the first element of this struct! */
 
