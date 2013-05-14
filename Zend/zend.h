@@ -287,6 +287,7 @@ typedef enum {
 #include "zend_ts_hash.h"
 #include "zend_llist.h"
 
+//pytonic：
 #define INTERNAL_FUNCTION_PARAMETERS int ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, int return_value_used TSRMLS_DC
 #define INTERNAL_FUNCTION_PARAM_PASSTHRU ht, return_value, return_value_ptr, this_ptr, return_value_used TSRMLS_CC
 
@@ -309,6 +310,7 @@ typedef struct _zend_guard {
 	zend_bool dummy; /* sizeof(zend_guard) must not be equal to sizeof(void*) */
 } zend_guard;
 
+// pytonic : 对象结构体
 typedef struct _zend_object {
 	zend_class_entry *ce;
 	HashTable *properties;
@@ -318,6 +320,7 @@ typedef struct _zend_object {
 
 #include "zend_object_handlers.h"
 
+// pytonic : zvalue
 typedef union _zvalue_value {
 	long lval;					/* long value */
 	double dval;				/* double value */
@@ -329,11 +332,14 @@ typedef union _zvalue_value {
 	zend_object_value obj;
 } zvalue_value;
 
+//pytonic : zval
 struct _zval_struct {
 	/* Variable information */
 	zvalue_value value;		/* value */
+	// pytonic :  
 	zend_uint refcount__gc;
 	zend_uchar type;	/* active type */
+	// pytonic :  
 	zend_uchar is_ref__gc;
 };
 
@@ -393,10 +399,12 @@ struct _zval_struct {
 # define UNEXPECTED(condition) (condition)
 #endif
 
+// pytonic : 
 static zend_always_inline zend_uint zval_refcount_p(zval* pz) {
 	return pz->refcount__gc;
 }
 
+//pytonic : 设置pz这个zval的引用
 static zend_always_inline zend_uint zval_set_refcount_p(zval* pz, zend_uint rc) {
 	return pz->refcount__gc = rc;
 }
@@ -473,6 +481,7 @@ struct _zend_trait_alias {
 };
 typedef struct _zend_trait_alias zend_trait_alias;
 
+//pytonic : 类
 struct _zend_class_entry {
 	char type;
 	const char *name;

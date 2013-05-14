@@ -51,30 +51,32 @@ typedef void (*copy_ctor_param_func_t)(void *pElement, void *pParam);
 
 struct _hashtable;
 
+//pytonic : 
 typedef struct bucket {
-	ulong h;						/* Used for numeric indexing */
-	uint nKeyLength;
-	void *pData;
-	void *pDataPtr;
-	struct bucket *pListNext;
-	struct bucket *pListLast;
-	struct bucket *pNext;
-	struct bucket *pLast;
-	const char *arKey;
+	ulong h;						/* 数字索引/hash值 *//* Used for numeric indexing */
+	uint nKeyLength;				/* 字符索引的长度 */
+	void *pData;					/* 数据 */
+	void *pDataPtr;					/* 数据指针 */
+	struct bucket *pListNext;		/* 下一个元素, 用于线性遍历 */
+	struct bucket *pListLast;		/* 上一个元素, 用于线性遍历 */
+	struct bucket *pNext;			/* 处于同一个拉链中的下一个元素 */
+	struct bucket *pLast;			/* 处于同一拉链中的上一个元素 */
+	const char *arKey;				/* 节省内存,方便初始化的技巧 */
 } Bucket;
 
+//pytonic HashTable
 typedef struct _hashtable {
-	uint nTableSize;
-	uint nTableMask;
-	uint nNumOfElements;
-	ulong nNextFreeElement;
-	Bucket *pInternalPointer;	/* Used for element traversal */
-	Bucket *pListHead;
-	Bucket *pListTail;
-	Bucket **arBuckets;
-	dtor_func_t pDestructor;
-	zend_bool persistent;
-	unsigned char nApplyCount;
+	uint nTableSize;			/* 散列表大小, Hash值的区间 */
+	uint nTableMask;			/* 等于nTableSize -1, 用于快速定位 */
+	uint nNumOfElements;		/* HashTable中实际元素的个数 */
+	ulong nNextFreeElement;		/* 下个空闲可用位置的数字索引 */
+	Bucket *pInternalPointer;	/* 内部位置指针, 会被reset, current这些遍历函数使用 */ /* Used for element traversal */
+	Bucket *pListHead;			/* 头元素, 用于线性遍历 */
+	Bucket *pListTail;			/* 尾元素, 用于线性遍历 */
+	Bucket **arBuckets;			/* 实际的存储容器 */
+	dtor_func_t pDestructor;	/* 元素的析构函数(指针) */
+	zend_bool persistent;		
+	unsigned char nApplyCount;	/* 循环遍历保护,为了防治循环引用导致的无限循环而设立的 */
 	zend_bool bApplyProtection;
 #if ZEND_DEBUG
 	int inconsistent;

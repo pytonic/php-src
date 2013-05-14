@@ -32,6 +32,7 @@
 
 BEGIN_EXTERN_C()
 
+// pytonic : 函数结构体
 typedef struct _zend_function_entry {
 	const char *fname;
 	void (*handler)(INTERNAL_FUNCTION_PARAMETERS);
