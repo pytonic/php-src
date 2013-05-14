@@ -70,6 +70,8 @@ struct _zend_ini_entry;
 typedef struct _zend_module_entry zend_module_entry;
 typedef struct _zend_module_dep zend_module_dep;
 
+
+//pytonic : 扩展模块的结构体
 struct _zend_module_entry {
 	unsigned short size;
 	unsigned int zend_api;
