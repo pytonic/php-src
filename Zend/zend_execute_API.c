@@ -39,6 +39,7 @@
 #endif
 
 ZEND_API void (*zend_execute_ex)(zend_execute_data *execute_data TSRMLS_DC);
+//pytonic
 ZEND_API void (*zend_execute_internal)(zend_execute_data *execute_data_ptr, zend_fcall_info *fci, int return_value_used TSRMLS_DC);
 
 /* true globals */
