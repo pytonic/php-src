@@ -43,6 +43,7 @@ PHPAPI HashTable *_php_get_stream_filters_hash(TSRMLS_D)
 	return (FG(stream_filters) ? FG(stream_filters) : &stream_filters_hash);
 }
 
+// pytonic : phpext  
 /* API for registering GLOBAL filters */
 PHPAPI int php_stream_filter_register_factory(const char *filterpattern, php_stream_filter_factory *factory TSRMLS_DC)
 {

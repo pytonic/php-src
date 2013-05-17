@@ -25,6 +25,7 @@
 #include "php.h"
 #include "SAPI.h"
 
+//pytonic : getpostcookie
 #define PARSE_POST 0
 #define PARSE_GET 1
 #define PARSE_COOKIE 2

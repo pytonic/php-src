@@ -37,6 +37,7 @@ extern ZEND_API struct _php_core_globals core_globals;
 #define PHP_DISPLAY_ERRORS_STDOUT	1
 #define PHP_DISPLAY_ERRORS_STDERR	2
 
+//pytonic : 
 /* Track vars */
 #define TRACK_VARS_POST		0
 #define TRACK_VARS_GET		1
@@ -109,6 +110,8 @@ struct _php_core_globals {
 
 	zend_llist tick_functions;
 
+//pytonic : http://www.laruence.com/2008/04/04/17.html
+//pytonic : 
 	zval *http_globals[6];
 
 	zend_bool expose_php;

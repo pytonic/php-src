@@ -36,6 +36,7 @@ typedef struct _zend_rsrc_list_entry {
 	int refcount;
 } zend_rsrc_list_entry;
 
+//pytonic : phpext  rsrc === resource
 typedef void (*rsrc_dtor_func_t)(zend_rsrc_list_entry *rsrc TSRMLS_DC);
 #define ZEND_RSRC_DTOR_FUNC(name)		void name(zend_rsrc_list_entry *rsrc TSRMLS_DC)
 

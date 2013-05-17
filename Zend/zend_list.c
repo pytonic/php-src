@@ -289,6 +289,7 @@ ZEND_API int zend_register_list_destructors(void (*ld)(void *), void (*pld)(void
 }
 
 
+//pytonic : phpext
 ZEND_API int zend_register_list_destructors_ex(rsrc_dtor_func_t ld, rsrc_dtor_func_t pld, const char *type_name, int module_number)
 {
 	zend_rsrc_list_dtors_entry lde;

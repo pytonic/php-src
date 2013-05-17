@@ -161,6 +161,7 @@ ZEND_API size_t zend_memory_peak_usage(int real_usage TSRMLS_DC);
 
 END_EXTERN_C()
 
+//pytonic : phpext
 /* fast cache for zval's */
 #define ALLOC_ZVAL(z)	\
 	(z) = (zval *) emalloc(sizeof(zval))

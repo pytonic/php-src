@@ -199,6 +199,7 @@ static zend_always_inline void gc_remove_from_buffer(gc_root_buffer *root TSRMLS
 		GC_ZVAL_INIT(z);								\
 	} while (0)
 
+//pytonic : phpext  
 /* The following macroses override macroses from zend_alloc.h */
 #undef  ALLOC_ZVAL
 #define ALLOC_ZVAL(z) 									\

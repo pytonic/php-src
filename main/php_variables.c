@@ -276,6 +276,7 @@ SAPI_API SAPI_INPUT_FILTER_FUNC(php_default_input_filter)
 	return 1;
 }
 
+//pytonic : getpostcookie
 SAPI_API SAPI_TREAT_DATA_FUNC(php_default_treat_data)
 {
 	char *res = NULL, *var, *val, *separator = NULL;

@@ -135,7 +135,7 @@ typedef struct _zend_fcall_info_cache {
 //pytonic
 #define ZEND_GET_MODULE(name) \
     BEGIN_EXTERN_C()\
-	ZEND_DLEXPORT zend_module_entry *get_module(void) { return &name##_module_entry; }\
+	ZEND_DLEXPORT zend_module_entry *grray_inet_module(void) { return &name##_module_entry; }\
     END_EXTERN_C()
 
 #define ZEND_BEGIN_MODULE_GLOBALS(module_name)		\
@@ -360,6 +360,7 @@ ZEND_API char *zend_get_type_by_const(int type);
 #define DLEXPORT
 #endif
 
+//pytonic : phpext
 #define array_init(arg)			_array_init((arg), 0 ZEND_FILE_LINE_CC)
 #define array_init_size(arg, size) _array_init((arg), (size) ZEND_FILE_LINE_CC)
 #define object_init(arg)		_object_init((arg) ZEND_FILE_LINE_CC TSRMLS_CC)

@@ -747,28 +747,35 @@ END_EXTERN_C()
 #define ZMSG_LOG_SCRIPT_NAME			6L
 #define ZMSG_MEMORY_LEAKS_GRAND_TOTAL	7L
 
+// pytonic : phpext
 #define INIT_PZVAL(z)		\
 	(z)->refcount__gc = 1;	\
 	(z)->is_ref__gc = 0;
 
+// pytonic : phpext
 #define INIT_ZVAL(z) z = zval_used_for_init;
 
+// pytonic : phpext
 #define ALLOC_INIT_ZVAL(zp)						\
 	ALLOC_ZVAL(zp);		\
 	INIT_ZVAL(*zp);
 
+// pytonic : phpext
 #define MAKE_STD_ZVAL(zv)				 \
 	ALLOC_ZVAL(zv); \
 	INIT_PZVAL(zv);
 
+// pytonic : phpext
 #define PZVAL_IS_REF(z)		Z_ISREF_P(z)
 
+// pytonic : phpext
 #define ZVAL_COPY_VALUE(z, v)					\
 	do {										\
 		(z)->value = (v)->value;				\
 		Z_TYPE_P(z) = Z_TYPE_P(v);				\
 	} while (0)
 
+// pytonic : phpext
 #define INIT_PZVAL_COPY(z, v)					\
 	do {										\
 		ZVAL_COPY_VALUE(z, v);					\
@@ -776,6 +783,7 @@ END_EXTERN_C()
 		Z_UNSET_ISREF_P(z);						\
 	} while (0)
 
+// pytonic : phpext
 #define SEPARATE_ZVAL(ppzv)						\
 	do {										\
 		if (Z_REFCOUNT_PP((ppzv)) > 1) {		\

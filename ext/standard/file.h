@@ -114,6 +114,7 @@ typedef struct _php_meta_tags_data {
 
 php_meta_tags_token php_next_meta_token(php_meta_tags_data * TSRMLS_DC);
 
+//pytonic : phpext 
 typedef struct {
 	int pclose_ret;
 	size_t def_chunk_size;
@@ -130,6 +131,7 @@ typedef struct {
 } php_file_globals;
 
 #ifdef ZTS
+//pytonic : phpext 
 #define FG(v) TSRMG(file_globals_id, php_file_globals *, v)
 extern PHPAPI int file_globals_id;
 #else
