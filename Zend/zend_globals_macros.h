@@ -29,6 +29,7 @@ typedef struct _zend_ini_scanner_globals zend_ini_scanner_globals;
 
 BEGIN_EXTERN_C()
 
+//pytonic : phpext
 /* Compiler */
 #ifdef ZTS
 # define CG(v) TSRMG(compiler_globals_id, zend_compiler_globals *, v)
@@ -40,6 +41,7 @@ int zendparse(void);
 #endif
 
 
+//pytonic : phpext
 /* Executor */
 #ifdef ZTS
 # define EG(v) TSRMG(executor_globals_id, zend_executor_globals *, v)
@@ -48,6 +50,7 @@ int zendparse(void);
 extern ZEND_API zend_executor_globals executor_globals;
 #endif
 
+//pytonic : phpext
 /* Language Scanner */
 #ifdef ZTS
 # define LANG_SCNG(v) TSRMG(language_scanner_globals_id, zend_php_scanner_globals *, v)
@@ -58,6 +61,7 @@ extern ZEND_API zend_php_scanner_globals language_scanner_globals;
 #endif
 
 
+//pytonic : phpext
 /* INI Scanner */
 #ifdef ZTS
 # define INI_SCNG(v) TSRMG(ini_scanner_globals_id, zend_ini_scanner_globals *, v)

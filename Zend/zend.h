@@ -19,6 +19,7 @@
 
 /* $Id$ */
 
+//pytonic : MUST read this
 #ifndef ZEND_H
 #define ZEND_H
 

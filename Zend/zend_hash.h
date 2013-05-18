@@ -19,6 +19,8 @@
 
 /* $Id$ */
 
+// pytonic : MUST read this 
+
 #ifndef ZEND_HASH_H
 #define ZEND_HASH_H
 
@@ -84,6 +86,7 @@ typedef struct _hashtable {
 } HashTable;
 
 
+//pytonic : 
 typedef struct _zend_hash_key {
 	const char *arKey;
 	uint nKeyLength;
@@ -213,6 +216,7 @@ ZEND_API int zend_hash_set_pointer(HashTable *ht, const HashPointer *ptr);
 	zend_hash_internal_pointer_end_ex(ht, NULL)
 #define zend_hash_update_current_key(ht, key_type, str_index, str_length, num_index) \
 	zend_hash_update_current_key_ex(ht, key_type, str_index, str_length, num_index, HASH_UPDATE_KEY_ANYWAY, NULL)
+
 
 /* Copying, merging and sorting */
 ZEND_API void zend_hash_copy(HashTable *target, HashTable *source, copy_ctor_func_t pCopyConstructor, void *tmp, uint size);
